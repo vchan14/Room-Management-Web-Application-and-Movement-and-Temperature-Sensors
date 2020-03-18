@@ -1,0 +1,48 @@
+{% extends "navBar.html" %}
+
+
+<div class="container">
+    <h3 class="page-header" id="Title" >Monday Statistic</h3>
+
+    <table class="table table-bordered table-condensed table-striped">            
+        <thead>
+            <tr>
+                <!-- <th scope="col">#</th> -->
+                <th scope="col">Room</th>
+                <th scope="col">Students</th>
+                <th scope="col">Tempearture</th>
+                <th scope="col">Humidity</th>
+                <th scope="col">Crowded Bar</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr>
+
+                <td>
+                    
+                </td>
+            </tr>
+
+            {% for room in rooms %}
+                <tr>
+                    <!-- Set variable in Jinja-->
+                    {% set crowd_percent = (room.number_of_students *100 //room.room_capacity) %}
+                    <td>{{room.room_number}}</td>
+                    <td>{{room.number_of_students}}</td>
+                    <td>{{room.temperature_in_celsuis}}</td>
+                    <td>{{room.humidity_in_percent}}</td>
+                    <td><div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: {{crowd_percent}}%;">
+                          
+                        </div>
+                      </div>
+                    </td>
+                </tr>
+        
+            {% endfor %}
+        </tbody>
+    </table>
+  
+</div>

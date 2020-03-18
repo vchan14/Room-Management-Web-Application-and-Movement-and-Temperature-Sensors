@@ -1,0 +1,101 @@
+{% extends "navBar.html" %}
+
+
+{% block content %}
+
+    <div class="container">
+        <h3 class="page-header" id="Title" > Cal Poly San Luis Obispo Classes</h3>
+
+
+        <button type="button" class="btn btn-default">
+            <a 
+                href={{ url_for('index') }}>
+                Show All
+            </a>    
+        </button>
+
+          
+        <button type="button" class="btn btn-default">
+            <a 
+                href={{ url_for('topFive') }}>
+                Top 5 Rooms
+            </a>    
+        </button>
+
+                  
+        <button type="button" class="btn btn-default">
+            <a 
+                href={{ url_for('worstFive') }}>
+                Worst 5 Rooms
+            </a>    
+        </button>
+        
+                          
+        <button type="button" class="btn btn-default">
+            <a 
+                href={{ url_for('map') }}>
+                Map 
+            </a>    
+        </button>
+
+
+        <div class="col-lg">
+            <form class="input-group" method="GET" action="search" >
+              <input type="text" class="form-control" name="query" id="query" placeholder="Search for...">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">Go!</button>
+              </span>
+            </form><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+
+        <!--We need to search for classroom-->
+
+
+        <table class="table table-bordered table-condensed table-striped">            
+            <thead>
+                <tr>
+                    <!-- <th scope="col">#</th> -->
+                    <th scope="col">Room</th>
+                    <th scope="col">Students</th>
+                    <th scope="col">Temperature</th>
+                    <th scope="col">Humidity</th>
+                    <th scope="col">Crowd Bar</th>
+                </tr>
+            </thead>
+    
+            <tbody>
+
+                {% if room != None %}
+    
+                    {% for room in rooms %}
+                        <tr>
+                            <!-- Set variable in Jinja-->
+                            {% set crowd_percent = (room.number_of_students *100 //room.room_capacity) %}
+                            <td>{{room.room_number}}</td>
+                            <td>{{room.number_of_students}}</td>
+                            <td>{{room.temperature_in_celsuis}}</td>
+                            <td>{{room.humidity_in_percent}}</td>
+                            <td><div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: {{crowd_percent}}%;">
+                                
+                                </div>
+                            </div>
+                            </td>
+                        </tr>
+                
+                    {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+
+
+
+{% endblock %}
+
+
+
+
+
+
+

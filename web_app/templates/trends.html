@@ -1,0 +1,46 @@
+{% extends "navBar.html" %}
+
+
+{% block content %}
+
+<div class="container">
+    <h3 class="page-header" id="Title" >Welcome to Trends</h3>
+    <!-- <span><a href={{ url_for('index') }} class="btn btn-info"> Home </a></span> -->
+    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+        <div class="btn-group" role="group">
+            <a href={{ url_for('index') }} on type="button" class="btn btn-default">Monday</a>
+        </div>
+        <div class="btn-group" role="group">
+            <a href={{ url_for('index') }} on type="button" class="btn btn-default">Tuesday</a>
+        </div>
+        <div class="btn-group" role="group">
+            <a href={{ url_for('index') }} on type="button" class="btn btn-default">Wednesday</a>
+        </div>
+
+        <div class="btn-group" role="group">
+            <a href={{ url_for('index') }} on type="button" class="btn btn-default">Thursday</a>
+        </div>
+
+        <div class="btn-group" role="group">
+            <a href={{ url_for('index') }} on type="button" class="btn btn-default">Friday</a>
+        </div>
+
+        <div class="btn-group" role="group">
+            <a href={{ url_for('index') }} on type="button" class="btn btn-default">Saturday</a>
+        </div>
+
+        <div class="btn-group" role="group">
+            <a href={{ url_for('index') }} on type="button" class="btn btn-default">Sunday</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}    
+
+
+
+

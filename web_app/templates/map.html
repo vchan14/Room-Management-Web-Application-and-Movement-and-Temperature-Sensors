@@ -1,0 +1,47 @@
+{% extends "navBar.html" %}
+
+
+{% block content %}
+
+<div class="container">
+    <h3 class="page-header" id="Title" >Welcome to Map</h3>
+    <!-- <span><a href={{ url_for('index') }} class="btn btn-info"> Home </a></span> -->
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3256.039286996876!2d-120.66468288432017!3d35.3050052802838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80ecf1b4054c3551%3A0x98b3b48a29d99103!2sCalifornia%20Polytechnic%20State%20University!5e0!3m2!1sen!2sus!4v1582516326314!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+
+    <p>Click the button to get your coordinates.</p>
+
+    <button onclick="getLocation()">Try It</button>
+
+<p id="demo"></p>
+</div>
+
+
+
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+</script>
+
+
+
+
+
+
+{% endblock %}    
+
+
+
+

@@ -1,0 +1,26 @@
+/* body {
+    position: absolute;
+    left: 20%;
+    right: 20%;
+
+} */
+
+#Title {
+    color: rgb(255, 0, 0);
+    text-align: center;
+
+}
+
+#noLine{
+    color: red;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-decoration: none;
+
+}
+
+
+/* Set the size of the div element that contains the map */
+#map {
+    height: 400px;  /* The height is 400 pixels */
+    width: 100%;  /* The width is the width of the web page */
+}
