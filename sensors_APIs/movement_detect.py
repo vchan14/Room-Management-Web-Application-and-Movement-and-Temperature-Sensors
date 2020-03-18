@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 import sys
+import lcd_16x2 
 
 sys.path.append('./../database')
 GPIO.setmode(GPIO.BCM)
@@ -74,6 +75,8 @@ try:
                     print("B is detected")
                     print("Going in")
                     obj.incrementNumberStudent("14-237")
+                    lcd_16x2.lcd_string("Num of student:", lcd_16x2.LCD_LINE_1)
+					lcd_16x2.lcd_string(str(num_student), lcd_16x2.LCD_LINE_2)
 
                     time.sleep(0.8)
                     break
@@ -89,6 +92,8 @@ try:
                     print("A is detected")
                     print("Going out")
                     obj.decrementNumberStudent("14-237")
+                    lcd_16x2.lcd_string("Num of student:", lcd_16x2.LCD_LINE_1)
+					lcd_16x2.lcd_string(str(num_student), lcd_16x2.LCD_LINE_2)
                     time.sleep(0.8)
                     break
                 else:
